@@ -132,7 +132,7 @@ class LaunchView: UIView {
         NSLayoutConstraint.activate([
         
             searchImageView.centerXAnchor   .constraint(equalTo: centerXAnchor),
-            searchImageView.centerYAnchor   .constraint(equalTo: centerYAnchor),
+            searchImageView.centerYAnchor   .constraint(equalTo: centerYAnchor, constant: -27.5),
             searchImageView.heightAnchor    .constraint(equalToConstant: 55),
             searchImageView.widthAnchor     .constraint(equalToConstant: 55)
         

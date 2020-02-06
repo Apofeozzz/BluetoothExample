@@ -34,6 +34,40 @@ class BLEManager: NSObject {
         
         centralManager = CBCentralManager(delegate: self, queue: nil)
         
+        changeConnectionState()
+        
+    }
+    
+    // MARK: - CHANGING STATE TIMER -
+    
+    private func changeConnectionState() {
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            
+            guard let ss = self else { return }
+            
+            do {
+                
+                let state = try ss.deviceConnection.value()
+                
+                ss.randomizeConnectionState(state: state)
+                
+            } catch { print("Error", error) }
+            
+        }
+        
+    }
+    
+    func randomizeConnectionState(state: DeviceConnection) {
+        
+        let randomNum = Int.random(in: 0 ..< DeviceConnection.allCases.count)
+        
+        let randomState = DeviceConnection.allCases[randomNum]
+        
+        if state != randomState { deviceConnection.onNext(randomState) }
+            
+        else { randomizeConnectionState(state: state) }
+        
     }
     
     // MARK: - START & STOP SCAN FOR PERIPHARAL DEVICES -

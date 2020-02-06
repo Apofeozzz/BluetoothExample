@@ -49,14 +49,6 @@ class LoudAndFreeViewController: UIViewController, LoudAndFreeViewProtocol {
             
         }
         
-        Timer.scheduledTimer(withTimeInterval: 5.5, repeats: false) { [weak self] (_) in
-            
-            guard let ss = self else { return }
-            
-            ss.presenter.changeDeviceConnectionCycle()
-            
-        }
-        
     }
     
     // MARK: - SETUP SUBSCRIPTIONS -

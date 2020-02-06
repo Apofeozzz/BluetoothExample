@@ -48,8 +48,6 @@ protocol LoudAndFreeViewPresenterProtocol {
     
     func rightButtonAction()
     
-    func changeDeviceConnectionCycle()
-    
     func sendButtonAction()
     
 }
@@ -96,42 +94,11 @@ class LoudAndFreeViewPresenter: NSObject, LoudAndFreeViewPresenterProtocol {
                 
             }
             
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (_) in
-                
-                ss.changeDeviceConnectionCycle()
-                
-            }
-            
         }).disposed(by: disposeBag)
         
     }
     
     // MARK: - ACTIONS -
-    
-    func changeDeviceConnectionCycle() {
-        
-        do {
-            
-            let state = try bleManager.deviceConnection.value()
-            
-            randomizeConnectionState(state: state)
-            
-            
-        } catch { print("Error", error) }
-        
-    }
-    
-    private func randomizeConnectionState(state: DeviceConnection) {
-        
-        let randomNum = Int.random(in: 0 ..< DeviceConnection.allCases.count)
-        
-        let randomState = DeviceConnection.allCases[randomNum]
-        
-        if state != randomState { bleManager.deviceConnection.onNext(randomState) }
-            
-        else { randomizeConnectionState(state: state) }
-        
-    }
     
     func leftButtonAction() {
         

@@ -31,7 +31,7 @@ class LaunchViewController: UIViewController, LaunchViewProtocol {
     
     func animateSearchView() {
         
-        UIView.animateKeyframes(withDuration: 1.65, delay: 0, options: [.autoreverse, .repeat], animations: { [weak self] in
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.autoreverse, .repeat], animations: { [weak self] in
             
             guard let ss = self else { return }
             
