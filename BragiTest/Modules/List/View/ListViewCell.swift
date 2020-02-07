@@ -10,6 +10,8 @@ import UIKit
 
 class ListViewCell: UITableViewCell {
     
+    // MARK: - REUSE ID -
+    
     static let reuseID = "ListViewCell"
     
     // MARK: - UIVIEW -

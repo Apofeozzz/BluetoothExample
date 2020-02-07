@@ -10,6 +10,16 @@ import UIKit
 import CoreBluetooth
 import RxSwift
 
+// MARK: - DEVICE CONNECTION -
+
+enum DeviceConnection: CaseIterable {
+    
+    case Connected
+    
+    case Disconnected
+    
+}
+
 class BLEManager: NSObject {
     
     static let shared = BLEManager()
@@ -108,12 +118,5 @@ extension BLEManager: CBCentralManagerDelegate {
         foundedPeripheral.append(peripheral)
         
     }
-    
-}
-
-// MARK: - PERIPHERAL DELEGATE -
-
-extension BLEManager: CBPeripheralDelegate {
-    
     
 }

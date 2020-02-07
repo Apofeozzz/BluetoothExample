@@ -80,6 +80,8 @@ class LoudAndFreeViewPresenter: NSObject, LoudAndFreeViewPresenterProtocol {
         
     }
     
+    // MARK: - SUBSCRIPTIONS -
+    
     private func setupSubscription() {
         
         bleManager.deviceConnection.skip(1).subscribe(onNext: { [weak self] (state) in

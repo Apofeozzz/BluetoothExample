@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// MARK: - ALERT STATE -
+
 enum AlertState {
 
     case Shown
@@ -192,7 +194,7 @@ class LoudAndFreeViewController: UIViewController, LoudAndFreeViewProtocol {
     }
     
     
-    // MARK: - ANIMATION -
+    // MARK: - ALERT ANIMATION -
     
     private func showAlert() {
         

@@ -119,7 +119,7 @@ class ListViewController: UIViewController, ListViewProtocol {
     
 }
 
-// MARK: - UITABLEVIEWDELEGATE -
+// MARK: - TABLEVIEW DELEGATE -
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     

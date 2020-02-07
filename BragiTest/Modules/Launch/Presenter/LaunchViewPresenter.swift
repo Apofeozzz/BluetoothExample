@@ -34,11 +34,15 @@ protocol LaunchViewPresenterProtocol {
 
 class LaunchViewPresenter: LaunchViewPresenterProtocol {
     
+    // MARK: - DATA SOURCE -
+    
     weak var view: LaunchViewProtocol?
     
     var bleManager: BLEManager
     
     let disposeBag = DisposeBag()
+    
+    // MARK: - INIT -
     
     required init(view: LaunchViewProtocol, bleManager: BLEManager) {
         
@@ -49,6 +53,8 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
         setupSubscriptions()
         
     }
+    
+    // MARK: - SUBSCRIPTIONS -
     
     private func setupSubscriptions() {
         
@@ -76,6 +82,8 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
         
     }
     
+    // MARK: - SEARCH PERIPHERALS -
+    
     func searchForPeripherals() {
         
         bleManager.startScanning()
@@ -93,6 +101,8 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
         }
         
     }
+    
+    // MARK: - NAVIGATION -
     
     private func moveToListViewController() {
         
